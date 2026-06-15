@@ -159,3 +159,35 @@ export function resetAllChallengeProgress() {
 
   notifyChallengeStorageUpdated();
 }
+
+export function completeLessonChallenges(challengeIds: string[]) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  challengeIds.forEach((challengeId) => {
+    const currentState = readChallengeState(challengeId);
+
+    window.localStorage.setItem(
+      getChallengeStorageKey(challengeId),
+      JSON.stringify({
+        ...currentState,
+        isCompleted: true,
+      }),
+    );
+  });
+
+  notifyChallengeStorageUpdated();
+}
+
+export function resetLessonChallenges(challengeIds: string[]) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  challengeIds.forEach((challengeId) => {
+    window.localStorage.removeItem(getChallengeStorageKey(challengeId));
+  });
+
+  notifyChallengeStorageUpdated();
+}

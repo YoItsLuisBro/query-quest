@@ -1,11 +1,16 @@
 import { useParams } from "react-router";
 import ChallengeCard from "../components/cards/ChallengeCard";
+import BrutalistButton from "../components/ui/BrutalistButton";
 import PageShell from "../components/ui/PageShell";
 import ProgressBar from "../components/ui/ProgressBar";
 import TerminalPanel from "../components/ui/TerminalPanel";
 import XPBadge from "../components/ui/XPBadge";
 import { getLessonById } from "../data/lessons";
 import { useLessonProgress } from "../hooks/useLessonProgress";
+import {
+  completeLessonChallenges,
+  resetLessonChallenges,
+} from "../utils/challengeProgress";
 
 export default function LessonDetailPage() {
   const { lessonId } = useParams();
@@ -22,6 +27,14 @@ export default function LessonDetailPage() {
         description="The requested SQL lesson does not exist yet."
       />
     );
+  }
+
+  function handleCompleteLesson() {
+    completeLessonChallenges(challengeIds);
+  }
+
+  function handleResetLesson() {
+    resetLessonChallenges(challengeIds);
   }
 
   return (
@@ -42,7 +55,7 @@ export default function LessonDetailPage() {
 
               <span className="border-2 border-slate-100 bg-cyan-300 px-3 py-2 text-xs font-black uppercase text-slate-950 shadow-[3px_3px_0px_#a78bfa]">
                 {lessonProgress.completedChallenges}/
-                {lessonProgress.totalChallenges} Challenges
+                {lessonProgress.totalChallenges} Sections
               </span>
 
               <span className="border-2 border-slate-100 bg-violet-400 px-3 py-2 text-xs font-black uppercase text-slate-950 shadow-[3px_3px_0px_#22d3ee]">
@@ -57,17 +70,43 @@ export default function LessonDetailPage() {
             />
 
             <p className="text-sm leading-6 text-slate-300">
-              Complete every challenge to earn the full{" "}
+              Practice each section freely. When you feel comfortable with the
+              full lesson, mark the entire lesson complete to earn the full{" "}
               <span className="font-black text-emerald-300">
                 {lesson.xp} XP
               </span>{" "}
-              reward for this lesson.
+              reward.
             </p>
+
+            <div className="flex flex-wrap gap-3">
+              <BrutalistButton
+                type="button"
+                variant="cyan"
+                onClick={handleCompleteLesson}
+                disabled={lessonProgress.status === "Completed"}
+              >
+                {lessonProgress.status === "Completed"
+                  ? "Lesson Completed"
+                  : "Mark Lesson Complete"}
+              </BrutalistButton>
+
+              <BrutalistButton
+                type="button"
+                variant="rose"
+                onClick={handleResetLesson}
+              >
+                Reset Lesson Progress
+              </BrutalistButton>
+            </div>
           </div>
         </TerminalPanel>
 
         {lesson.challenges.map((challenge) => (
-          <ChallengeCard key={challenge.id} challenge={challenge} />
+          <ChallengeCard
+            key={challenge.id}
+            challenge={challenge}
+            completionMode="lesson"
+          />
         ))}
       </div>
     </PageShell>
