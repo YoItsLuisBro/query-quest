@@ -41,6 +41,17 @@ export interface SchemaDatabase {
   relationships: SchemaRelationship[];
 }
 
+export interface BossBattleStage {
+  id: string;
+  title: string;
+  objective: string;
+  prompt: string;
+  starterQuery: string;
+  solution: string;
+  hints: string[];
+  successCriteria: string[];
+}
+
 export interface BossBattle {
   id: string;
   title: string;
@@ -49,6 +60,10 @@ export interface BossBattle {
   requiredSkills: string[];
   description: string;
   status: "Locked" | "Unlocked" | "Completed";
+  enemyName: string;
+  scenario: string;
+  tables: string[];
+  stages: BossBattleStage[];
 }
 
 export interface Project {
