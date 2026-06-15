@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #020617;
+  --surface: #0f172a;
+  --surface-alt: #111827;
+  --border: #e2e8f0;
+  --text: #f8fafc;
+  --text-muted: #cbd5e1;
+  --muted: #64748b;
+  --accent: #22d3ee;
+  --accent-alt: #a78bfa;
+  --danger: #f43f5e;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --info: #38bdf8;
+  --query-bg: #020617;
+  --query-border: #334155;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+    var(--bg);
+  background-size: 32px 32px;
+  color: var(--text);
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}
+
+button,
+a {
+  font: inherit;
+}

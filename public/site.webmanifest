@@ -1,0 +1,20 @@
+{
+  "name": "QUERY//QUEST",
+  "short_name": "Q//Q",
+  "description": "A brutalist SQL learning platform.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#22d3ee",
+  "background_color": "#020617",
+  "display": "standalone"
+}
