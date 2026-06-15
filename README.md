@@ -1,900 +1,353 @@
-# QUERY//QUEST — SQL Learning Platform Prompt
+# QUERY//QUEST
 
-Create a complete learning website called **QUERY//QUEST**, a brutalist SQL programming and database learning platform.
+**QUERY//QUEST** is a brutalist SQL learning platform built with React, Vite, TypeScript, and TailwindCSS. It teaches SQL through structured learning paths, interactive lesson challenges, query drills, boss battles, schema practice, projects, a SQL playground, automatic review queues, and a personal mistake journal.
 
-Use the **latest stable versions** of:
-
-- React
-- Vite
-- TypeScript
-- TailwindCSS
-- React Router
-- Modern npm package setup
-
-Use **React + Vite + TypeScript** as the foundation.
-
-The site should feel like a **dark brutalist database terminal / query training arena** where users learn SQL through active practice, query writing, debugging, schema analysis, boss battles, and project-based progression.
-
-The code should reflect modern React patterns:
-
-- Functional components only
-- TypeScript interfaces/types
-- Component-based architecture
-- Reusable data-driven lesson structures
-- Clean folder organization
-- TailwindCSS utility-first styling
-- Responsive mobile-first layout
-- Accessible buttons, cards, forms, and navigation
-- No outdated React patterns
-- No class components
-- No Create React App
+The goal of QUERY//QUEST is to make SQL feel like a progression-based training system instead of a static tutorial.
 
 ---
 
-## Project Name
+## Tech Stack
 
-**QUERY//QUEST**
-
-### Tagline
-
-```txt
-Master SQL through queries, schemas, joins, battles, and real data missions.
-```
-
----
-
-## Theme Direction
-
-Create a **brutalist dark database theme** with sharp edges, thick borders, strong contrast, terminal panels, table-grid visuals, and aggressive monospace typography.
-
-The UI should feel like:
-
-```txt
-brutalist database terminal
-SQL command center
-dark query arena
-data analyst training console
-database RPG
-```
-
-Avoid soft SaaS styling. Avoid rounded, pastel, corporate UI.
-
-Use:
-
-- Hard borders
-- Blocky cards
-- High-contrast database panels
-- Monospace typography
-- Big uppercase headings
-- Terminal-inspired prompts
-- Query editor sections
-- Data table previews
-- Schema diagrams
-- XP/progress elements
-- Lesson cards that feel like database missions
+* React
+* Vite
+* TypeScript
+* TailwindCSS
+* React Router
+* localStorage for saved progress
+* Brutalist dark UI theme
 
 ---
 
-## Color Scheme
+## Core Features
 
-Use this color system throughout the app.
+### Learning Paths
 
-This should feel different from SCRIPT//QUEST. Instead of yellow highlights, use **cyan, emerald, and violet** accents for a database-terminal identity.
+QUERY//QUEST includes five main difficulty levels:
 
-```ts
-const theme = {
-  background: "#020617",
-  surface: "#0F172A",
-  surfaceAlt: "#111827",
-  border: "#E2E8F0",
-  textPrimary: "#F8FAFC",
-  textSecondary: "#CBD5E1",
-  muted: "#64748B",
+1. SQL Fundamentals
+2. Intermediate SQL
+3. Advanced SQL
+4. Boss Level SQL
+5. Architect Level SQL
 
-  accent: "#22D3EE",
-  accentAlt: "#A78BFA",
-  danger: "#F43F5E",
-  success: "#10B981",
-  warning: "#F59E0B",
-  info: "#38BDF8",
+Each level contains 20 lessons.
 
-  queryBg: "#020617",
-  queryBorder: "#334155",
-  tableHeader: "#1E293B",
-  tableCell: "#0F172A"
-};
-```
-
-Use Tailwind-friendly design tokens:
-
-```css
---bg: #020617;
---surface: #0f172a;
---surface-alt: #111827;
---border: #e2e8f0;
---text: #f8fafc;
---text-muted: #cbd5e1;
---muted: #64748b;
---accent: #22d3ee;
---accent-alt: #a78bfa;
---danger: #f43f5e;
---success: #10b981;
---warning: #f59e0b;
---info: #38bdf8;
---query-bg: #020617;
---query-border: #334155;
-```
-
-Primary visual style:
+Total lesson count:
 
 ```txt
-navy-black background
-white/slate borders
-cyan highlights
-emerald success states
-rose error states
-violet advanced/database states
-amber warning states
+20 Beginner lessons
+20 Intermediate lessons
+20 Advanced lessons
+20 Boss Level lessons
+20 Architect Level lessons
+100 total lessons
+```
+
+Each lesson is available through its own route:
+
+```txt
+/lessons/:lessonId
 ```
 
 ---
 
-## App Structure
+## Lesson Structure
 
-Create the following main pages:
-
-```txt
-Home
-Choose Your Path
-Path Detail
-Lesson Detail
-Daily Query
-SQL Playground
-Boss Battles
-Projects
-Progress Dashboard
-Query Mistake Journal
-Schema Library
-```
-
-Use React Router for navigation.
-
----
-
-## Navigation Layout
-
-The main layout should include:
+Every lesson is generated with the same complete learning flow:
 
 ```txt
-Top Navigation
- ├── QUERY//QUEST logo
- ├── Paths
- ├── Daily Query
- ├── Playground
- ├── Boss Battles
- ├── Projects
- ├── Schemas
- └── Dashboard
-```
-
-On desktop, use a brutalist top nav or sidebar.
-
-On mobile, use a collapsible stacked layout.
-
----
-
-## Home Page
-
-The Home page should include:
-
-1. Hero section
-2. Brief explanation of the SQL learning method
-3. Three core actions
-4. Featured paths
-5. Daily query preview
-6. Progress preview
-7. Boss battle preview
-8. Schema library preview
-
-Hero copy:
-
-```txt
-QUERY//QUEST
-
-Learn SQL by writing queries, breaking databases, fixing joins, and solving real data missions.
-
-No passive tutorials. No endless videos. Just tables, queries, bugs, feedback, and mastery.
-```
-
-Hero buttons:
-
-```txt
-Start SQL Basics
-Open Daily Query
-Enter SQL Playground
-```
-
-Add stat cards:
-
-```txt
-4 Learning Paths
-40+ Lessons
-25+ Query Challenges
-10+ Projects
-Boss Battles
-Schema Library
-```
-
----
-
-## Learning Method Section
-
-Create a section titled:
-
-```txt
-THE QUERY LOOP
-```
-
-Display the learning method as brutalist cards:
-
-```txt
-01. Learn
-Tiny SQL concept explanation.
-
-02. Read
-Study a sample table and query.
-
-03. Predict
-Guess what rows the query returns.
-
-04. Fix
-Repair broken SQL syntax or logic.
-
-05. Write
-Create your own query from a prompt.
-
-06. Analyze
-Explain why the query works.
-
-07. Build
-Solve a real data mission.
-
-08. Review
-Save weak topics and retry later.
-```
-
----
-
-# Learning Paths
-
-Create the following paths:
-
----
-
-## 1. SQL Fundamentals
-
-Description:
-
-```txt
-Start here. Learn tables, rows, columns, SELECT statements, filtering, sorting, and basic SQL syntax.
-```
-
-Modules:
-
-```txt
-Module 1: Database Basics
-- What a database is
-- Tables, rows, and columns
-- Primary keys
-- Foreign keys
-- Records and fields
-- Reading a schema
-
-Module 2: SELECT Queries
-- SELECT
-- FROM
-- Selecting specific columns
-- Aliases with AS
-- DISTINCT
-- Basic query formatting
-
-Module 3: Filtering Data
-- WHERE
-- Comparison operators
-- AND, OR, NOT
-- BETWEEN
-- IN
-- LIKE
-
-Module 4: Sorting and Limiting
-- ORDER BY
-- ASC and DESC
-- LIMIT
-- OFFSET
-- Sorting by multiple columns
-- Combining WHERE and ORDER BY
-
-Module 5: Aggregate Basics
-- COUNT
-- SUM
-- AVG
-- MIN
-- MAX
-- Introduction to GROUP BY
-```
-
----
-
-## 2. SQL Joins and Relationships
-
-Description:
-
-```txt
-Learn how tables connect using keys, relationships, and joins.
-```
-
-Modules:
-
-```txt
-Module 1: Table Relationships
-- One-to-one relationships
-- One-to-many relationships
-- Many-to-many relationships
-- Primary keys
-- Foreign keys
-- Join logic
-
-Module 2: Inner Joins
-- INNER JOIN
-- Joining two tables
-- Table aliases
-- Selecting columns from joined tables
-- Filtering joined data
-- Join mistakes
-
-Module 3: Outer Joins
-- LEFT JOIN
-- RIGHT JOIN
-- FULL OUTER JOIN concept
-- Missing matches
-- NULL values in joins
-- When to use outer joins
-
-Module 4: Multi-Table Joins
-- Joining three tables
-- Bridge tables
-- Many-to-many joins
-- Join order
-- Readable formatting
-- Debugging complex joins
-```
-
----
-
-## 3. Intermediate SQL
-
-Description:
-
-```txt
-Level up with grouping, subqueries, CASE statements, data modification, constraints, and database design.
-```
-
-Modules:
-
-```txt
-Module 1: Grouping and Aggregation
-- GROUP BY
-- HAVING
-- COUNT with GROUP BY
-- SUM with GROUP BY
-- AVG with GROUP BY
-- Grouping by multiple columns
-
-Module 2: Subqueries
-- What a subquery is
-- Subqueries in WHERE
-- Subqueries in FROM
-- Subqueries with IN
-- Subqueries with EXISTS
-- Common subquery mistakes
-
-Module 3: CASE Statements
-- CASE
-- WHEN
-- THEN
-- ELSE
-- END
-- Creating calculated labels
-
-Module 4: Data Modification
-- INSERT
-- UPDATE
-- DELETE
-- Safe updates
-- Transactions concept
-- Rollback concept
-
-Module 5: Constraints and Design
-- NOT NULL
-- UNIQUE
-- CHECK
-- DEFAULT
-- Primary key constraints
-- Foreign key constraints
-```
-
----
-
-## 4. Advanced SQL
-
-Description:
-
-```txt
-Master advanced querying with CTEs, window functions, indexing concepts, performance, normalization, and analytics.
-```
-
-Modules:
-
-```txt
-Module 1: CTEs
-- WITH
-- Naming temporary result sets
-- Breaking complex queries into steps
-- Multiple CTEs
-- CTEs vs subqueries
-- Readability patterns
-
-Module 2: Window Functions
-- OVER
-- PARTITION BY
-- ROW_NUMBER
-- RANK
-- DENSE_RANK
-- Running totals
-
-Module 3: Advanced Analytics
-- Date grouping
-- Cohort-style analysis
-- Conditional aggregation
-- Percentages and ratios
-- Top-N queries
-- Ranking results
-
-Module 4: Performance Concepts
-- Index basics
-- Query plans concept
-- Filtering before joining
-- Avoiding SELECT *
-- Large table habits
-- Performance anti-patterns
-
-Module 5: Database Design
-- Normalization
-- First normal form
-- Second normal form
-- Third normal form
-- Denormalization concept
-- Designing clean schemas
-```
-
----
-
-# Lesson Detail Page
-
-Every lesson should follow this exact structure:
-
-```txt
-Lesson Header
-Concept Explanation
+Concept
 Sample Table
 Query Example
 Predict the Result
 Fix the Query
-Write the Query
+Write It Yourself
 Explain the Query
 Mini Data Mission
 Review Questions
-Next Lesson Button
 ```
 
-Example lesson data should be stored in TypeScript objects, not hardcoded across many components.
+This keeps every lesson consistent while making the data system easier to scale.
 
-Create lesson data like:
+---
 
-```ts
-export type LessonType =
-  | "concept"
-  | "sample-table"
-  | "query-example"
-  | "predict"
-  | "debug"
-  | "write"
-  | "explain"
-  | "mission"
-  | "review";
+## Main Routes
 
-export interface TableColumn {
-  name: string;
-  type: string;
-}
-
-export interface TableRow {
-  id: string;
-  values: Record<string, string | number | boolean | null>;
-}
-
-export interface SampleTable {
-  name: string;
-  columns: TableColumn[];
-  rows: TableRow[];
-}
-
-export interface LessonChallenge {
-  id: string;
-  type: LessonType;
-  title: string;
-  prompt: string;
-  query?: string;
-  answer?: string;
-  options?: string[];
-  hints?: string[];
-  table?: SampleTable;
-}
-
-export interface Lesson {
-  id: string;
-  pathId: string;
-  moduleId: string;
-  title: string;
-  description: string;
-  xp: number;
-  challenges: LessonChallenge[];
-}
+```txt
+/                       Home
+/paths                  Learning paths and lesson search
+/paths/:pathId          Individual path details
+/lessons/:lessonId      Lesson detail page
+/daily-query            Daily SQL challenge
+/playground             SQL playground
+/boss-battles           Boss battles
+/projects               SQL projects
+/schemas                Schema library
+/dashboard              Progress dashboard
+/mistakes               Review queue and mistake journal
 ```
 
 ---
 
-# Example Lesson Content
-
-Create a sample lesson called:
+## Project Structure
 
 ```txt
-SELECT Basics
-```
-
-Include these challenges:
-
----
-
-## Concept
-
-```txt
-SELECT is used to choose which columns you want to see from a table. FROM tells SQL which table to read from.
-```
-
-Query:
-
-```sql
-SELECT first_name, last_name
-FROM students;
-```
-
----
-
-## Sample Table
-
-Table name:
-
-```txt
-students
-```
-
-Columns:
-
-```txt
-id
-first_name
-last_name
-grade
-enrolled
-```
-
-Rows:
-
-```txt
-1 | Maya  | Chen   | 92 | true
-2 | Luis  | Rivera | 85 | true
-3 | Nora  | Smith  | 74 | false
-4 | James | Cole   | 98 | true
-```
-
----
-
-## Predict the Result
-
-Query:
-
-```sql
-SELECT first_name, grade
-FROM students;
-```
-
-Options:
-
-```txt
-A. Shows all columns from students
-B. Shows only first_name and grade from students
-C. Shows only students with grade above 90
-D. Deletes first_name and grade
-```
-
-Correct answer:
-
-```txt
-B. Shows only first_name and grade from students
-```
-
----
-
-## Fix the Query
-
-Broken query:
-
-```sql
-SELECT first_name last_name
-students;
-```
-
-Expected fix:
-
-```sql
-SELECT first_name, last_name
-FROM students;
-```
-
-Explanation:
-
-```txt
-Column names must be separated by commas, and FROM is required before the table name.
+src/
+ ├── app/
+ │    └── App.tsx
+ │
+ ├── components/
+ │    ├── cards/
+ │    │    ├── BossBattleCard.tsx
+ │    │    ├── ChallengeCard.tsx
+ │    │    ├── LessonCard.tsx
+ │    │    ├── LessonSearchCard.tsx
+ │    │    ├── MistakeCard.tsx
+ │    │    ├── ModuleCard.tsx
+ │    │    ├── PathCard.tsx
+ │    │    ├── ProjectCard.tsx
+ │    │    ├── ReviewQueueCard.tsx
+ │    │    └── SchemaCard.tsx
+ │    │
+ │    ├── layout/
+ │    │    ├── AppLayout.tsx
+ │    │    └── Navbar.tsx
+ │    │
+ │    ├── mistakes/
+ │    │    ├── UserMistakeCard.tsx
+ │    │    └── UserMistakeForm.tsx
+ │    │
+ │    ├── sql/
+ │    │    ├── SchemaDiagram.tsx
+ │    │    └── SQLPlayground.tsx
+ │    │
+ │    └── ui/
+ │         ├── BrutalistButton.tsx
+ │         ├── PageShell.tsx
+ │         ├── ProgressBar.tsx
+ │         ├── QueryBlock.tsx
+ │         ├── ResetProgressButton.tsx
+ │         ├── ResultTable.tsx
+ │         ├── SectionHeader.tsx
+ │         ├── TerminalPanel.tsx
+ │         └── XPBadge.tsx
+ │
+ ├── data/
+ │    ├── bossBattles.ts
+ │    ├── dailyChallenges.ts
+ │    ├── lessons.ts
+ │    ├── mistakes.ts
+ │    ├── paths.ts
+ │    ├── progress.ts
+ │    ├── projects.ts
+ │    ├── schemas.ts
+ │    │
+ │    └── lessons/
+ │         ├── advancedLessons.ts
+ │         ├── architectLevelLessons.ts
+ │         ├── beginnerLessons.ts
+ │         ├── bossLevelLessons.ts
+ │         ├── intermediateLessons.ts
+ │         ├── lessonBlueprint.ts
+ │         ├── lessonFactory.ts
+ │         └── sharedTables.ts
+ │
+ ├── hooks/
+ │    ├── useChallengeProgressSummary.ts
+ │    ├── useLessonProgress.ts
+ │    ├── useLocalLearningSummary.ts
+ │    ├── useLocalStorage.ts
+ │    ├── useReviewQueue.ts
+ │    └── useUserMistakes.ts
+ │
+ ├── pages/
+ │    ├── BossBattlesPage.tsx
+ │    ├── DailyQueryPage.tsx
+ │    ├── DashboardPage.tsx
+ │    ├── HomePage.tsx
+ │    ├── LessonDetailPage.tsx
+ │    ├── MistakeJournalPage.tsx
+ │    ├── NotFoundPage.tsx
+ │    ├── PathDetailPage.tsx
+ │    ├── PathsPage.tsx
+ │    ├── PlaygroundPage.tsx
+ │    ├── ProjectsPage.tsx
+ │    └── SchemaLibraryPage.tsx
+ │
+ ├── styles/
+ │    └── index.css
+ │
+ ├── types/
+ │    └── learning.ts
+ │
+ ├── utils/
+ │    ├── challengeProgress.ts
+ │    ├── lessonSearch.ts
+ │    ├── ranks.ts
+ │    ├── reviewQueue.ts
+ │    └── userMistakes.ts
+ │
+ └── main.tsx
 ```
 
 ---
 
-## Write It Yourself
+## Getting Started
 
-Prompt:
+### 1. Install dependencies
 
-```txt
-Write a query that returns the first_name, last_name, and grade columns from the students table.
+```bash
+npm install
 ```
 
-Solution:
+### 2. Start the development server
 
-```sql
-SELECT first_name, last_name, grade
-FROM students;
+```bash
+npm run dev
 ```
 
----
+### 3. Build for production
 
-## Explain the Query
-
-Prompt:
-
-```txt
-Explain what this query does.
+```bash
+npm run build
 ```
 
-Query:
+### 4. Preview production build
 
-```sql
-SELECT first_name, grade
-FROM students
-WHERE grade >= 90;
-```
-
-Expected explanation:
-
-```txt
-This query selects the first_name and grade columns from the students table. It only returns students whose grade is 90 or higher.
+```bash
+npm run preview
 ```
 
 ---
 
-# Daily Query Page
+## Favicon Setup
 
-Create a daily practice page with three cards:
+QUERY//QUEST uses a custom `Q//Q` favicon set.
 
-```txt
-Predict One Result
-Fix One Query
-Write One Query
-```
-
-Add sample challenges.
-
-The Daily Query page should feel like a quick 5-minute SQL workout.
-
-Example:
-
-```sql
-SELECT name, price
-FROM products
-WHERE price > 50;
-```
-
----
-
-# SQL Playground Page
-
-Create a playground page with:
+Place the favicon files inside:
 
 ```txt
-SQL editor panel
-Schema panel
-Result table panel
-Run Query button
-Reset button
-Example queries
+public/
 ```
 
-For now, simulate SQL query results using mock data. Do not require a real database.
-
-If implementing real query execution later, explain in comments that SQL execution should be sandboxed.
-
-Visual layout:
+Recommended files:
 
 ```txt
-Left: SQL editor
-Right: Schema reference
-Bottom: Result table
+favicon.ico
+favicon.svg
+favicon-16x16.png
+favicon-32x32.png
+favicon-48x48.png
+favicon-64x64.png
+favicon-128x128.png
+favicon-256x256.png
+apple-touch-icon.png
+android-chrome-192x192.png
+android-chrome-512x512.png
+site.webmanifest
+```
+
+The root `index.html` should include:
+
+```html
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 ```
 
 ---
 
-# Schema Library Page
+## Responsive Navbar
 
-Create a Schema Library page where users can inspect sample databases.
-
-Create sample schemas:
+The navbar is responsive:
 
 ```txt
-School Database
-- students
-- courses
-- enrollments
-- teachers
+Desktop:
+Full navigation appears at xl screens and above.
 
-Store Database
-- customers
-- orders
-- order_items
-- products
-
-Movie Database
-- movies
-- actors
-- directors
-- movie_cast
-
-Finance Database
-- accounts
-- transactions
-- categories
-- budgets
+Tablet / Mobile:
+Navigation collapses into a dropdown menu.
 ```
 
-Each schema card should include:
+This prevents the nav buttons from crowding the screen between tablet and small laptop widths.
+
+---
+
+## Lesson Search Behavior
+
+The `/paths` page includes a lesson search panel.
+
+Search results are hidden by default so the page does not render all 100 lessons immediately.
+
+Behavior:
 
 ```txt
-Database name
-Tables
-Relationships
+Page loads:
+Only path cards and search panel are visible.
+
+User clicks Search:
+Matching lesson cards appear.
+
+User changes filters:
+Results do not update until Search is clicked again.
+
+User clicks Reset Filters:
+Inputs reset and search results disappear.
+```
+
+Search filters include:
+
+```txt
+Keyword
 Difficulty
-Practice button
-```
-
-Example schema relationship:
-
-```txt
-students.id → enrollments.student_id
-courses.id → enrollments.course_id
-```
-
----
-
-# Boss Battles Page
-
-Create boss battles as larger SQL missions unlocked after paths.
-
-Boss battles:
-
-```txt
-Beginner Boss: Student Grade Report
-Join Boss: Store Order Investigation
-Aggregation Boss: Monthly Sales Summary
-Subquery Boss: High Value Customers
-Window Function Boss: Leaderboard Rankings
-Design Boss: Normalize the Messy Spreadsheet
-```
-
-Each boss card should show:
-
-```txt
-Difficulty
-XP reward
-Required skills
-Mission description
-Start button
 Status
 ```
 
 ---
 
-# Projects Page
+## Local Progress System
 
-Create project cards grouped by difficulty.
+QUERY//QUEST saves challenge progress in `localStorage`.
 
-## Beginner Projects
-
-```txt
-Student Report Query Pack
-Product Filter Queries
-Employee Directory Search
-Basic Sales Report
-Library Book Lookup
-```
-
-## Intermediate Projects
+Saved progress includes:
 
 ```txt
-Store Revenue Dashboard Queries
-Customer Order History
-Course Enrollment Analysis
-Movie Database Explorer
-Budget Category Report
+Selected multiple-choice options
+Typed answers
+Completed challenge states
+Lesson progress
+Earned XP
+Rank progress
+Review queue state
+User-saved mistakes
 ```
 
-## Advanced Projects
-
-```txt
-Leaderboard Ranking System
-Monthly Financial Report
-Cohort Retention Analysis
-Inventory Performance Analysis
-Database Normalization Challenge
-```
-
-Each project should include:
-
-```txt
-Skills practiced
-Estimated difficulty
-Starter schema
-Required queries
-Completion checklist
-```
+Progress is browser-local. It does not require a backend.
 
 ---
 
-# Progress Dashboard
+## XP and Rank System
 
-Create a dashboard page with:
+Lessons award XP based on completed challenges.
+
+The dashboard calculates:
 
 ```txt
-Total XP
-Current rank
+Local XP earned
+Available lesson XP
 Completed lessons
-Current streak
-Weak SQL topics
-Boss battles completed
-Review queue
-Schemas mastered
+Completed challenges
+Current rank
+Next rank
+XP needed for next rank
 ```
 
-Create mock progress data in TypeScript.
+Current rank is calculated dynamically from local XP.
 
-Example ranks:
+Rank ladder:
 
 ```txt
 Rank 1: SELECT Rookie
@@ -909,358 +362,195 @@ Rank 8: Database Architect
 
 ---
 
-# Query Mistake Journal
+## Review Queue
 
-Create a Query Mistake Journal page where users can see common SQL mistakes.
+The Mistake Journal includes an automatic review queue.
 
-Each mistake card should include:
+The review queue detects:
+
+```txt
+Challenges that were started but not completed
+Next incomplete challenge per lesson
+Saved partial answers
+Incomplete lesson progress
+```
+
+Each review card links directly back to the lesson.
+
+---
+
+## User-Saved Mistake Journal
+
+Users can manually save SQL mistakes.
+
+Each saved mistake includes:
 
 ```txt
 Mistake title
+Topic
 Broken query
 Fixed query
 Explanation
-Topic
-Review button
+Created date
 ```
 
-Example mistake:
+Saved mistakes are stored in `localStorage`.
+
+Users can delete individual saved mistakes.
+
+---
+
+## SQL Playground
+
+The SQL Playground provides a mock query environment where users can practice SQL-style commands against sample data.
+
+The playground includes:
 
 ```txt
-Forgot FROM in a SELECT query.
-```
-
-Broken:
-
-```sql
-SELECT first_name, last_name
-students;
-```
-
-Fixed:
-
-```sql
-SELECT first_name, last_name
-FROM students;
-```
-
-Explanation:
-
-```txt
-FROM tells SQL which table to read data from.
-```
-
-Another example mistake:
-
-```txt
-Used WHERE instead of HAVING with aggregate results.
-```
-
-Broken:
-
-```sql
-SELECT department, COUNT(*) AS total_employees
-FROM employees
-WHERE COUNT(*) > 5
-GROUP BY department;
-```
-
-Fixed:
-
-```sql
-SELECT department, COUNT(*) AS total_employees
-FROM employees
-GROUP BY department
-HAVING COUNT(*) > 5;
-```
-
-Explanation:
-
-```txt
-WHERE filters rows before grouping. HAVING filters groups after GROUP BY.
+Query editor
+Run Query button
+Reset button
+Example queries
+Mock results table
+Schema preview
 ```
 
 ---
 
-# Components to Create
+## Schema Library
 
-Create reusable components:
+The Schema Library includes database schema cards and schema diagrams.
+
+Schema cards help users practice reading:
 
 ```txt
-AppLayout
-Navbar
-Hero
-PathCard
-ModuleCard
-LessonCard
-ChallengeCard
-QueryBlock
-SQLPlayground
-ResultTable
-SchemaCard
-SchemaDiagram
-XPBadge
-ProgressBar
-BossBattleCard
-ProjectCard
-MistakeCard
-TerminalPanel
-BrutalistButton
-SectionHeader
+Tables
+Columns
+Column types
+Relationships
+Primary keys
+Foreign keys
 ```
 
 ---
 
-# Suggested Folder Structure
+## Boss Battles
 
-Use this structure:
-
-```txt
-src/
- ├── app/
- │    └── App.tsx
- │
- ├── components/
- │    ├── layout/
- │    │    ├── AppLayout.tsx
- │    │    └── Navbar.tsx
- │    │
- │    ├── ui/
- │    │    ├── BrutalistButton.tsx
- │    │    ├── QueryBlock.tsx
- │    │    ├── ProgressBar.tsx
- │    │    ├── ResultTable.tsx
- │    │    ├── SectionHeader.tsx
- │    │    ├── TerminalPanel.tsx
- │    │    └── XPBadge.tsx
- │    │
- │    ├── cards/
- │    │    ├── PathCard.tsx
- │    │    ├── ModuleCard.tsx
- │    │    ├── LessonCard.tsx
- │    │    ├── BossBattleCard.tsx
- │    │    ├── ProjectCard.tsx
- │    │    ├── SchemaCard.tsx
- │    │    └── MistakeCard.tsx
- │    │
- │    └── sql/
- │         ├── SQLPlayground.tsx
- │         ├── SchemaDiagram.tsx
- │         └── TablePreview.tsx
- │
- ├── data/
- │    ├── paths.ts
- │    ├── lessons.ts
- │    ├── projects.ts
- │    ├── bossBattles.ts
- │    ├── mistakes.ts
- │    ├── progress.ts
- │    └── schemas.ts
- │
- ├── pages/
- │    ├── HomePage.tsx
- │    ├── PathsPage.tsx
- │    ├── PathDetailPage.tsx
- │    ├── LessonDetailPage.tsx
- │    ├── DailyQueryPage.tsx
- │    ├── PlaygroundPage.tsx
- │    ├── BossBattlesPage.tsx
- │    ├── ProjectsPage.tsx
- │    ├── DashboardPage.tsx
- │    ├── MistakeJournalPage.tsx
- │    └── SchemaLibraryPage.tsx
- │
- ├── types/
- │    └── learning.ts
- │
- ├── styles/
- │    └── index.css
- │
- ├── main.tsx
- └── vite-env.d.ts
-```
-
----
-
-# Design Requirements
-
-Use brutalist classes like:
-
-```txt
-border-2 border-slate-100
-bg-slate-950
-uppercase
-font-mono
-shadow-[6px_6px_0px_#22d3ee]
-hover:translate-x-1
-hover:translate-y-1
-transition-transform
-```
-
-Buttons should look like hard-edged command buttons.
-
-Cards should have strong borders and offset shadows.
+Boss Battles are larger SQL missions that combine multiple skills.
 
 Examples:
 
-```tsx
-<button className="border-2 border-slate-100 bg-cyan-300 px-4 py-2 font-mono font-black uppercase text-slate-950 shadow-[4px_4px_0px_#a78bfa] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none">
-  Run Query
-</button>
-```
-
-```tsx
-<section className="border-2 border-slate-100 bg-slate-950 p-6 shadow-[8px_8px_0px_#22d3ee]">
-  <p className="font-mono text-sm uppercase text-cyan-300">
-    Query Active
-  </p>
-  <h2 className="mt-2 text-3xl font-black uppercase text-white">
-    SQL Fundamentals
-  </h2>
-</section>
-```
-
-Query blocks should look like database terminal panels:
-
-```tsx
-<pre className="border-2 border-slate-600 bg-slate-950 p-4 font-mono text-sm text-cyan-200">
-  <code>
-    SELECT first_name, grade
-    FROM students
-    WHERE grade &gt;= 90;
-  </code>
-</pre>
-```
-
-Result tables should use strong grid styling:
-
 ```txt
-bordered cells
-uppercase headers
-dark table background
-cyan header accents
-emerald success highlights
-rose error states
+Student Grade Report
+Product Filter Boss
+Store Order Investigation
+Monthly Sales Summary
+High Value Customers
+Large Order CTE Boss
+Final Query Gauntlet
 ```
 
 ---
 
-# Functionality Requirements
+## Architect Level
 
-Implement:
-
-```txt
-Routing between all pages
-Reusable cards
-Mock lesson data
-Mock progress data
-Mock daily query challenges
-Mock boss battles
-Mock project list
-Mock schema library
-Mock query mistake journal
-Responsive design
-Progress bars
-XP badges
-Lesson status labels
-Difficulty labels
-Result table previews
-Sample schema diagrams
-```
-
-Use local mock data first. Do not require a backend.
-
-Prepare the code so a backend or real SQL engine can be added later.
-
----
-
-# UI Tone
-
-Use strong labels like:
+Architect Level lessons focus on advanced SQL thinking:
 
 ```txt
-QUERY ACTIVE
-SYNTAX ERROR
-JOIN DETECTED
-BOSS LOCKED
-XP REWARD
-SCHEMA LOADED
-TABLE SCAN
-RESULT SET
-REVIEW REQUIRED
-DATABASE MISSION
-TRAINING MODE
-QUERY ARENA
-```
-
-Use lesson statuses:
-
-```txt
-Not Started
-In Progress
-Completed
-Review Needed
-```
-
-Use difficulty statuses:
-
-```txt
-Beginner
-Intermediate
-Advanced
-Boss Level
-Architect Level
+Window functions
+Ranking reports
+Running totals
+Normalization
+Index strategy
+Query plan review
+Analytics architecture
+Capstone database design
 ```
 
 ---
 
-# Final Deliverable
+## Development Notes
 
-Generate the full working React + Vite + TypeScript + TailwindCSS project.
+### Clear all local challenge progress
 
-Include:
+Use the reset button on the Dashboard.
+
+This clears:
 
 ```txt
-package.json
-vite.config.ts
-tsconfig files
-Tailwind setup
-src folder
-all components
-all pages
-all data files
-responsive styling
-clean TypeScript types
+Challenge answers
+Completed challenge state
+Local XP
+Rank progress
+Review queue state
 ```
 
-The app should run with:
+It does not delete the app’s built-in lesson data.
+
+### Clear saved user mistakes
+
+Saved mistakes can be deleted one by one from the Mistake Journal.
+
+---
+
+## Recommended Test Routes
+
+```txt
+/
+/paths
+/paths/sql-fundamentals
+/paths/intermediate-sql
+/paths/advanced-sql
+/paths/boss-level
+/paths/architect-level
+/lessons/select-basics
+/lessons/inner-join-basics
+/lessons/cte-basics
+/lessons/leaderboard-rankings
+/lessons/architect-final-capstone
+/daily-query
+/playground
+/dashboard
+/mistakes
+```
+
+---
+
+## Build Checklist
+
+Before deploying:
 
 ```bash
-npm install
-npm run dev
+npm run build
 ```
 
-The final result should be a polished brutalist SQL learning platform called **QUERY//QUEST** with the full structure described above.
+Then confirm:
+
+```txt
+No TypeScript errors
+No ESLint errors
+Navbar works on mobile/tablet/desktop
+Search results stay hidden until Search is clicked
+Lessons appear in every path
+Dashboard XP updates after completing challenges
+Mistake Journal saves and deletes user mistakes
+Favicon appears in browser tab
+```
 
 ---
 
-# Important Instruction
+## Project Identity
 
-Do not give me a simplified demo.
+```txt
+Name: QUERY//QUEST
+Short Name: Q//Q
+Theme: Brutalist SQL terminal
+Primary colors:
+- Slate black
+- Cyan
+- Violet
+- White
+- Rose accents
+```
 
-Build the full starter application with:
-
-- All pages
-- Routing
-- Reusable components
-- Mock data
-- Brutalist styling
-- Clean TypeScript
-- Responsive layout
-- Modern React + Vite + TailwindCSS setup
-- SQL lesson data
-- Query challenges
-- Schema library
-- Query result table previews
-
-The code should be clean enough for me to continue building it into a real learning platform.
+QUERY//QUEST is built to make SQL practice feel structured, visual, and game-like while keeping the learning path serious enough for real database skills.
