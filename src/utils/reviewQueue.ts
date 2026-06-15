@@ -36,7 +36,6 @@ export function getAutomaticReviewQueue(): ReviewQueueItem[] {
     });
 
     incompleteChallenges.forEach((challenge) => {
-      const state = readChallengeState(challenge.id);
       const attempted = hasSavedAttempt(challenge.id);
 
       if (attempted) {
